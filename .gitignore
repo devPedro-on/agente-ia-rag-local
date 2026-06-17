@@ -1,0 +1,18 @@
+# Ambientes virtuais do Python
+venv/
+.venv/
+ENV/
+env/
+
+# Banco de dados vetorial local (gerado dinamicamente)
+chroma_db_storage/
+
+# Caches e arquivos temporários do Python e Streamlit
+__pycache__/
+*.pyc
+.streamlit/
+.chroma/
+
+# Arquivos de sistema ocultos
+.DS_Store
+Thumbs.db
