@@ -1,36 +1,40 @@
-# 🤖 Agente de IA Privado com RAG e Memória Local
+# 🧠 Centro de Conhecimento IA - Agente RAG Local (V2)
 
-Este projeto consiste em um assistente de suporte técnico inteligente operando de forma 100% local, privada e segura. A aplicação utiliza a arquitetura **RAG (Retrieval-Augmented Generation)** para consultar documentos PDF de forma dinâmica e possui uma janela de contexto para lembrar do histórico da conversa recente, mantendo a experiência fluida no estilo ChatGPT.
+Este é um projeto de um **Agente de Inteligência Artificial Privado** com arquitetura **RAG (Retrieval-Augmented Generation)**, projetado para consolidar um verdadeiro centro de conhecimento multifuncional. O sistema roda de forma **100% local e privada** no WSL2 (Ubuntu), garantindo total segurança dos dados ingeridos.
 
-## 🚀 Funcionalidades
+Nesta versão **V2**, o agente evoluiu de um leitor de PDFs para uma plataforma capaz de cruzar dados entre múltiplos formatos textuais e tabulares, além de expor as fontes exatas utilizadas para responder às perguntas.
 
-- **Privacidade Total:** Roda inteiramente na sua máquina (via WSL 2 e Ollama), sem envio de dados para APIs externas.
-- **Ingestão Dinâmica:** Interface gráfica que permite arrastar e soltar (Drag and Drop) qualquer arquivo PDF para indexação imediata.
-- **Memória de Curto Prazo:** O agente compreende pronomes e perguntas complementares baseado nas últimas mensagens trocadas.
-- **Interface:** Visual escuro customizado via injeção de CSS no Streamlit para melhor experiência de uso.
+---
 
-## 🛠️ Tecnologias Utilizadas
+## 🚀 Funcionalidades Principais
 
-- **Ambiente:** WSL 2 (Ubuntu 22.04+)
-- **Interface:** [Streamlit](https://streamlit.io/)
-- **Orquestração de IA:** [LangChain](https://www.langchain.com/)
-- **Banco Vetorial:** [ChromaDB](https://www.trychroma.com/)
-- **LLM Local:** `llama3` via [Ollama](https://ollama.com/)
-- **Embeddings:** `nomic-embed-text` via Ollama
+* **Ingestão Dinâmica Multiformato:** Suporte a arquivos de texto, documentos corporativos e planilhas de dados:
+  * 📄 **PDF** (`.pdf`)
+  * 📝 **Word** (`.docx`)
+  * 📓 **Notas/Markdown** (`.txt`, `.md`)
+  * 📊 **Tabelas/Planilhas** (`.csv`, `.xlsx`)
+* **Processamento em Lote (Drag & Drop):** Permite arrastar e soltar múltiplos arquivos simultaneamente na barra lateral.
+* **Transparência com Fontes Citadas:** Abaixo de cada resposta, o agente exibe um card com os nomes dos arquivos consultados no banco vetorial para formular a resposta.
+* **Seleção Dinâmica de Modelos:** Interface integrada para alternar entre diferentes versões do Llama (`Llama 3`, `3.1` ou `3.2`) em tempo de execução.
+* **Interface Premium:** Visual escuro personalizado (*Dark Mode*) otimizado com injeção de CSS nativo do Streamlit.
 
-## 🔧 Como Executar o Projeto
+---
 
-### Pró-requisitos
+## 🛠️ Stack Tecnológica
 
-Certifique-se de ter o **Ollama** rodando no seu ambiente e os modelos instalados:
+* **Interface Web:** Streamlit
+* **Orquestração da IA:** LangChain
+* **Banco de Dados Vetorial:** ChromaDB
+* **Modelos de Linguagem (LLM):** Ollama (`Llama3`)
+* **Embeddings Locais:** Ollama (`nomic-embed-text`)
+* **Processadores de Arquivos:** PyPDF, Docx2txt, Pandas, Openpyxl
 
+---
+
+## 🔧 Pré-requisitos & Instalação
+
+### 1. Dependências do Sistema
+Certifique-se de ter o **Ollama** instalado e rodando no seu ambiente Linux/WSL, com os modelos baixados:
 ```bash
-ollama pull llama3
+ollama run llama3
 ollama pull nomic-embed-text
-
-
-____________________________________________________________________________________________
-## Como executar o ambiente virtual (venv):
-### Abra o terminal (Ctrl + ') e rode **source venv/bin/activate** e veja se aparece o (venv).
-
-### Para rodar o streamlite via terminal, rode **streamlit run app.py**.
