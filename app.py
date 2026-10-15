@@ -12,7 +12,7 @@ from langchain_core.documents import Document
 # Configuração da página
 st.set_page_config(page_title="Centro de Conhecimento IA", page_icon="🧠", layout="wide")
 
-# --- INJEÇÃO DE CSS PREMIUM ---
+# CSS customizado
 st.markdown("""
     <style>
     .stApp { background-color: #0E1117; font-family: 'Inter', sans-serif; }
@@ -54,7 +54,7 @@ if "messages" not in st.session_state:
 if "db_ready" not in st.session_state:
     st.session_state.db_ready = os.path.exists("chroma_db_storage")
 
-# --- FUNÇÃO AUXILIAR PARA EXTRAÇÃO DE TEXTO MULTIFORMATO ---
+# FUNÇÃO AUXILIAR PARA EXTRAÇÃO DE TEXTO MULTIFORMATO
 def extrair_texto(file):
     ext = file.name.split(".")[-1].lower()
     texto = ""
@@ -83,7 +83,7 @@ def extrair_texto(file):
             
     return texto.strip()
 
-# --- BARRA LATERAL ---
+# BARRA LATERAL
 with st.sidebar:
     st.markdown("## ⚙️ Painel de Controle")
     st.write("")
@@ -140,7 +140,7 @@ with st.sidebar:
         st.session_state.messages = []
         st.rerun()
 
-# --- ÁREA PRINCIPAL DO CHAT ---
+# ÁREA PRINCIPAL DO CHAT
 st.title("🤖 Centro de Conhecimento Multiformato")
 st.markdown("##### Faça perguntas cruzadas sobre PDFs, Documentos Word, Notas e Planilhas locais.")
 st.write("")
